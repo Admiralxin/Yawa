@@ -118,9 +118,18 @@ local U = require(k.Client.Gui.GuiScripts.Hotbar)
 local V = require(k.Shared.Teleport.WorldData)
 local W = require(k.Shared.Combat.Skillsets.Warlord)
 local X = require(k.Shared.Combat.Skillsets.Summoner)
+
+local profilesFolder = k:WaitForChild("Profiles", 30)
+if not profilesFolder then
+    warn("Profiles folder not found in ReplicatedStorage")
+    return
+end
+
 repeat
-    wait()
-until k:WaitForChild('Profiles'):FindFirstChild(H.Name)
+    wait(0.1)
+until profilesFolder:FindFirstChild(H.Name)
+
+
 local Y = {
     [1.1] = 2978696440,
     [1.2] = 4310464656,
@@ -1709,8 +1718,8 @@ e.ChildRemoved:Connect(function(bE)
     end
 end)
 
-
-Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Turtle-Brand/Turtle-Lib/refs/heads/main/source.lua"))
+Library = loadstring(
+    game:HttpGet("https://raw.githubusercontent.com/Turtle-Brand/Turtle-Lib/refs/heads/main/source.lua"))
 
 local bF = Library:Window({
     Title = game:GetService('MarketplaceService'):GetProductInfo(game.PlaceId).Name,
