@@ -121,7 +121,7 @@ local X = require(k.Shared.Combat.Skillsets.Summoner)
 
 local profilesFolder = k:WaitForChild("Profiles", 30)
 if not profilesFolder then
-    warn("Profiles folder not found in ReplicatedStorage")
+    print("Profiles folder not found in ReplicatedStorage")
     return
 end
 
